@@ -7,7 +7,6 @@ public class GradeManager {
         this.students = new ArrayList<>();
     }
     
-    // Add a new student
     public boolean addStudent(String name, String studentId, double subject1, double subject2, double subject3) {
         // Check if student ID already exists
         if (findStudentById(studentId) != null) {
@@ -29,7 +28,6 @@ public class GradeManager {
         return null;
     }
     
-    // Update student marks
     public boolean updateStudentMarks(String studentId, double subject1, double subject2, double subject3) {
         Student student = findStudentById(studentId);
         if (student != null) {
@@ -39,7 +37,6 @@ public class GradeManager {
         return false;
     }
     
-    // Delete student
     public boolean deleteStudent(String studentId) {
         Student student = findStudentById(studentId);
         if (student != null) {
@@ -72,7 +69,6 @@ public class GradeManager {
         return totalAverage / students.size();
     }
     
-    // Get grade distribution
     public Map<Character, Integer> getGradeDistribution() {
         Map<Character, Integer> distribution = new HashMap<>();
         distribution.put('A', 0);
@@ -89,17 +85,14 @@ public class GradeManager {
         return distribution;
     }
     
-    // Validate marks (0-100)
     public static boolean isValidMark(double mark) {
         return mark >= 0 && mark <= 100;
     }
     
-    // Validate student ID (non-empty and unique)
     public static boolean isValidStudentId(String studentId) {
         return studentId != null && !studentId.trim().isEmpty();
     }
     
-    // Validate name (non-empty)
     public static boolean isValidName(String name) {
         return name != null && !name.trim().isEmpty();
     }
