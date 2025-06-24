@@ -25,19 +25,16 @@ public class StudentGradeGUI extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         
-        // Create main panels
         JPanel inputPanel = createInputPanel();
         JPanel tablePanel = createTablePanel();
         JPanel buttonPanel = createButtonPanel();
         JPanel statsPanel = createStatsPanel();
         
-        // Add panels to frame
         add(inputPanel, BorderLayout.NORTH);
         add(tablePanel, BorderLayout.CENTER);
         add(buttonPanel, BorderLayout.SOUTH);
         add(statsPanel, BorderLayout.EAST);
         
-        // Set frame properties
         setSize(1000, 600);
         setLocationRelativeTo(null);
         setResizable(true);
@@ -49,21 +46,18 @@ public class StudentGradeGUI extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
         
-        // Name field
         gbc.gridx = 0; gbc.gridy = 0;
         panel.add(new JLabel("Name:"), gbc);
         gbc.gridx = 1;
         nameField = new JTextField(15);
         panel.add(nameField, gbc);
         
-        // ID field
         gbc.gridx = 2; gbc.gridy = 0;
         panel.add(new JLabel("Student ID:"), gbc);
         gbc.gridx = 3;
         idField = new JTextField(10);
         panel.add(idField, gbc);
         
-        // Subject fields
         gbc.gridx = 0; gbc.gridy = 1;
         panel.add(new JLabel("Subject 1:"), gbc);
         gbc.gridx = 1;
@@ -89,7 +83,6 @@ public class StudentGradeGUI extends JFrame {
         JPanel panel = new JPanel(new BorderLayout());
         panel.setBorder(BorderFactory.createTitledBorder("Student Records"));
         
-        // Create table model
         String[] columnNames = {"Student ID", "Name", "Subject 1", "Subject 2", "Subject 3", "Average", "Grade"};
         tableModel = new DefaultTableModel(columnNames, 0) {
             @Override
@@ -102,7 +95,6 @@ public class StudentGradeGUI extends JFrame {
         studentTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         studentTable.getTableHeader().setReorderingAllowed(false);
         
-        // Add selection listener
         studentTable.getSelectionModel().addListSelectionListener(e -> {
             if (!e.getValueIsAdjusting()) {
                 populateFieldsFromSelection();
@@ -124,7 +116,6 @@ public class StudentGradeGUI extends JFrame {
         JButton clearButton = new JButton("Clear Fields");
         JButton exitButton = new JButton("Exit");
         
-        // Add action listeners
         addButton.addActionListener(e -> addStudent());
         updateButton.addActionListener(e -> updateStudent());
         deleteButton.addActionListener(e -> deleteStudent());
