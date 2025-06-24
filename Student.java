@@ -7,7 +7,6 @@ public class Student {
     private double average;
     private char grade;
     
-    // Constructor
     public Student(String name, String studentId, double subject1, double subject2, double subject3) {
         this.name = name;
         this.studentId = studentId;
@@ -17,7 +16,6 @@ public class Student {
         calculateAverageAndGrade();
     }
     
-    // Calculate average and assign grade
     private void calculateAverageAndGrade() {
         this.average = (subject1 + subject2 + subject3) / 3.0;
         assignGrade();
