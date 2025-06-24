@@ -18,7 +18,6 @@ public class GradeManager {
         return true;
     }
     
-    // Find student by ID
     public Student findStudentById(String studentId) {
         for (Student student : students) {
             if (student.getStudentId().equals(studentId)) {
@@ -46,17 +45,14 @@ public class GradeManager {
         return false;
     }
     
-    // Get all students
     public List<Student> getAllStudents() {
         return new ArrayList<>(students);
     }
     
-    // Get total number of students
     public int getTotalStudents() {
         return students.size();
     }
     
-    // Get class average
     public double getClassAverage() {
         if (students.isEmpty()) {
             return 0.0;
